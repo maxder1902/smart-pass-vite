@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de QR</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+
+  <div class="container mx-auto max-w-lg bg-white p-5 rounded shadow-lg">
+    <h2 class="text-2xl font-semibold text-center mb-5">Generador de Códigos QR</h2>
+    <form id="formulario" action="/api/generarQR" method="POST" enctype="multipart/form-data" class="space-y-4">
+      <label for="archivo" class="block text-sm font-medium text-gray-700">Subir archivo (.xlsx o .csv)</label>
+      <input type="file" id="archivo" name="archivo" class="w-full p-2 border border-gray-300 rounded" accept=".csv, .xlsx" required>
+
+      <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Generar QR</button>
+    </form>
+    
+    <div id="download-section" class="mt-4 hidden">
+      <a id="download-link" class="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600" href="#">Descargar archivo con QRs</a>
+    </div>
+  </div>
+
+  <script src="/src/main.js"></script>
+</body>
+</html>
